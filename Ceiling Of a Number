@@ -1,0 +1,34 @@
+public class ceilingOfNumber{
+  public static void main (String args[]){
+    int arr []= { 1,3,4,6,7,8,9};
+        int target = 5;
+        int ans = ceilingofnumber(arr, target);
+        System.out.println(ans);
+    }
+    static  int ceilingofnumber(int arr [], int target) {
+        int s = 0;
+        int e = arr.length - 1;
+
+        if (target > arr[e]) {
+            return -1;  // No ceiling exists
+        }
+        while (s <= e) {
+            int mid  = s + (e - s) / 2;
+            if (target ==arr[mid]) {
+                return arr[mid];
+            }
+            if (target < arr[mid]) {
+                e= mid -1;
+
+            }
+            if (target > arr[mid]) {
+                s = mid + 1;
+
+            }
+
+        }
+        return arr[s];
+    }
+
+
+}
