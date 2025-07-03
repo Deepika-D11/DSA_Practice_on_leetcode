@@ -1,0 +1,26 @@
+class Solution {
+    public int peakIndexInMountainArray(int[] arr) {
+
+        int start =0;
+         int end = arr.length-1;
+         // what we have to do to solve this problem 
+         // need three checks here 1.if mid is > than the mid +1 == it means we 
+         // in the discending part of the array 
+         // 2. if mid is < than the mid +1 = it means we are in the  ascending part of the array  
+         // 3. condition is break when both start and end pointing to the largest element // this is what , or answer 
+
+         while(start<end){
+            int mid = start +( end -start )/2;
+
+
+            if(arr[mid]> arr[mid+1]){
+                end = mid;
+            } else if( arr[mid]< arr[mid +1]){
+                start = mid+1;
+            }
+         }
+
+         return start;
+        
+    }
+}
