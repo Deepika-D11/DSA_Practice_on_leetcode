@@ -1,0 +1,20 @@
+// link - https://leetcode.com/problems/find-the-k-th-character-in-string-game-i/description/
+
+class Solution {
+    public char kthCharacter(int k) {
+        StringBuilder word = new StringBuilder("a");
+
+        while (word.length() < k) {
+            int len = word.length();  // save current length
+
+            // Generate and append only the next `len` characters
+            for (int i = 0; i < len && word.length() < k; i++) {
+                char ch = word.charAt(i);
+                char shifted = (ch == 'z') ? 'a' : (char)(ch + 1);
+                word.append(shifted);
+            }
+        }
+
+        return word.charAt(k - 1);
+    }
+}
